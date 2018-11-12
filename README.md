@@ -1,5 +1,5 @@
 # happy-vue-toast
-> 基于vue2的toast插件
+> 一款基于vue2的toast插件
 
 ## 安装
 ```
@@ -18,6 +18,7 @@ Vue.use(toast,{
 ```
 你也下载 dist中的happy-vue-toast.js文件，直接引入使用
 ```
+// 注意前提是引入了vue文件
 <script src="./dist/happy-vue-toast.js"></script>
 ```
 
@@ -45,11 +46,11 @@ this.$toast.top('hello world',{
 ```
 
 ## 配置项
-|名称|作用|
-|:------:|:------:|
-|type|控制显示位置|
-|duration|显示持续时间|
-|extStyle|修改样式(不建议修改很多)|
+|名称|类型|作用|
+|:------:|:------:|:------:|
+|type|string|控制显示位置|
+|duration|number|显示持续时间|
+|extStyle|object|修改样式(不建议修改很多)|
 |未完待续|...|
 
 ## 要加入的
