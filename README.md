@@ -16,6 +16,10 @@ Vue.use(toast,{
     //....
 })
 ```
+你也下载 dist中的happy-vue-toast.js文件，直接引入使用
+```
+<script src="./dist/happy-vue-toast.js"></script>
+```
 
 ## 基本使用
 显示的位置有 `top`，`center`，`bottom` 三种
