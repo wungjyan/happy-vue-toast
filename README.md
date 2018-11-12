@@ -32,10 +32,21 @@ this.$toast.bottom('hello world')
 
 // 局部调用加入配置项,此配置项会覆盖全局配置项
 this.$toast.top('hello world',{
-    duration:3000, // 持续时间
+    duration:3000, // 持续时间
     extStyle:{  // 修改样式
         color:'red',
         background: '#eeeeee'
     }
 })
 ```
+
+## 配置项
+|名称|作用|
+|:------:|:------:|
+|type|控制显示位置|
+|duration|显示持续时间|
+|extStyle|修改样式(不建议修改很多)|
+|未完待续|...|
+
+## 要加入的
+1. 加载loading
