@@ -56,7 +56,7 @@ this.$showLoading({
     //...
 })
 
-// 关闭加载
+// 关闭加载
 this.$hideLoading()
 
 ```
