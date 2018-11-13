@@ -6,7 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>测试</title>
     <style>
-        #app div{
+        #app .wrap{
+            display: flex;
+            justify-content: space-around;
+        }
+        #app .btn{
             width: 30%;
             height: 40px;
             line-height: 40px;
@@ -21,9 +25,16 @@
 </head>
 <body>
     <div id="app">
-        <div class="btn-top" @click="clickTop">top</div>
-        <div class="btn-center" @click="clickCenter">center</div>
-        <div class="btn-bottom" @click="clickBottom">bottom</div>
+        <div class="wrap">
+            <div class="btn" @click="clickTop">top</div>
+           <div class="btn" @click="clickCenter">center</div>
+           <div class="btn" @click="clickBottom">bottom</div>
+        </div>
+        <div class="wrap">
+            <div class="btn" @click="showLoad">显示loading</div>
+        <div class="btn" @click="hideLoad">隐藏loading</div>
+        </div>
+        
     </div>
     <script>
         new Vue({
@@ -44,8 +55,15 @@
                         extStyle:{
                             color:'red'
                         },
-                        duration:30000
+                        duration:2000
                     })
+                },
+
+                showLoad:function(){
+                    this.$showLoading()
+                },
+                hideLoad:function(){
+                    this.$hideLoading()
                 }
             }
         })
