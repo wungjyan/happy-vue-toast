@@ -23,7 +23,7 @@ Vue.use(toast,{
 ```
 
 ## 基本使用
-显示的位置有 `top`，`center`，`bottom` 三种
+toast 显示的位置有 `top`，`center`，`bottom` 三种
 ```
 // 默认在页面中间显示
 this.$toast('hello world')
@@ -45,13 +45,39 @@ this.$toast.top('hello world',{
 })
 ```
 
+使用loading功能
+```
+// 不加配置使用默认样式
+this.$showLoading()
+
+// 可自行配置所需样式
+this.$showLoading({
+    donutColor:'red' // 加载动画环的颜色
+    //...
+})
+
+// 关闭加载
+this.$hideLoading()
+
+```
+
 ## 配置项
+### toast的配置项
 |名称|类型|作用|
 |:------:|:------:|:------:|
 |type|string|控制显示位置|
 |duration|number|显示持续时间|
 |extStyle|object|修改样式(不建议修改很多)|
-|未完待续|...|
 
-## 要加入的
-1. 加载loading
+### loading的配置项
+|名称|类型|作用|
+|:------:|:------:|:------:|
+|loadText|string|显示字样|
+|showMask|boolean|是否显示遮罩层|
+|maskColor|string|遮罩层颜色|
+|donutColor|string|加载动画环的颜色|
+|loadBgColor|string|加载显示块的背景色|
+
+## 期望
+1. 加入不同加载动画
+2. ...
