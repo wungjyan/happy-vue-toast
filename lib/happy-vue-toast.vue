@@ -1,7 +1,17 @@
 <template>
-  <div class="happy-vue-toast" :class="type" v-if="show" :style="extStyle">
+<div class="wj">
+  <div class="toast" :class="type" v-if="showToast" :style="extStyle">
       {{text}}
   </div>
+  <div class="wrap" v-if="showLoad">
+    <div class="mask" v-if="showMask" :style="{background:maskColor}"></div>
+    <div class="loading" :style="{background:loadBgColor}">
+      <div class="donut" :style="{borderLeftColor:donutColor}"></div>
+      <div class="loadText">{{loadText}}</div>
+    </div>
+  </div>
+</div>
+  
 </template>
 
 <script>
@@ -9,20 +19,27 @@ export default {
   data () {
     return {
       text: '',
-      show: false,
+      showToast: false,
       type: 'center',
       extStyle: {
         width: 'auto',
         color: '#ffffff',
         background: 'rgba(0,0,0,0.7)'
-      }
+      },
+
+      showLoad:false,
+      showMask:false,
+      maskColor:'rgba(0, 0, 0, 0.5)',
+      donutColor:'#000',
+      loadBgColor: '#ccc',
+      loadText: '加载中...'
     }
   }
 }
 </script>
 
 <style>
-.happy-vue-toast{
+.wj .toast{
     z-index: 9999;
     position: fixed;
     left: 50%;
@@ -41,14 +58,61 @@ export default {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-.happy-vue-toast.top{
+.wj .toast.top{
   top: 50px;
 }
-.happy-vue-toast.center{
+.wj .toast.center{
   margin-top: -20px;
 }
-.happy-vue-toast.bottom{
+.wj .toast.bottom{
   top: inherit;
   bottom: 100px;
+}
+
+.wj .mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1001;
+}
+
+.wj .loading {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  z-index: 1003;
+}
+
+@keyframes donut {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.wj .loading .donut {
+  display: inline-block;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  animation: donut 0.8s linear infinite;
+}
+
+.wj .loading .loadText {
+  margin-top: 5px;
 }
 </style>
